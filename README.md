@@ -22,8 +22,10 @@ After done add this syntax below to your composer.json file
 ```javascript
 {
 	"repositories": [
-		"type": "vcs",
-		"url": "git@bitbucket.org:pseudecoder/cmbridgesquid.git"
+		{
+			"type": "vcs",
+			"url": "git@bitbucket.org:pseudecoder/cmbridgesquid.git"
+		}
 	],
 	"require": {
         "acommerce/cmbridgequid": "dev-master"
