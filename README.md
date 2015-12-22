@@ -4,19 +4,17 @@ CMBridgeSquid
 **Channel Micro Bridge Squid** for integration Channel Management to aCommerce Squid.
 
 Version
--------
+---------
 0.1.0
 
 Status
-------
+-------
 Will still be maintenance and develop.
 
 Installation
-------------
-
-Config your computer to be able pull from bitbucket without username and password
--[Set Up SSH][stupgitssh]
--If you have multiple account at bitbucket and you want to register it on the same computer [Read This][multiacc]
+-------------
+ - [Set Up SSH][stupgitssh] so you don't need to be able pull from repo with username and password
+ - If you have multiple account at bitbucket and you want to register it on the same computer [Read This][multiacc]
 
 After done add this syntax below to your composer.json file
 
