@@ -1,0 +1,22 @@
+{
+    "name": "acommerce/cmbridgequid",
+    "description": "Channel Micro Bridge Squid for integration to acommerce Squid",
+    "license": "aCommerce",
+    "authors": [
+        {
+            "name": "Rizha",
+            "email": "rizha.musthafa@acommerce.asia"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "aCommerce\\CMBridgeSquid\\": "src"
+        }
+    }
+}
