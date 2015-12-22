@@ -15,8 +15,8 @@ Installation
 ------------
 
 Config your computer to be able pull from bitbucket without username and password
- * [Set Up SSH][stupgitssh]
- * If you have multiple account at bitbucket and you want to register it on the same computer [Read This][multiacc]
+-[Set Up SSH][stupgitssh]
+-If you have multiple account at bitbucket and you want to register it on the same computer [Read This][multiacc]
 
 After done add this syntax below to your composer.json file
 
