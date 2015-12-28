@@ -2,23 +2,33 @@
 
 namespace aCommerce\CMBridgeSquid;
 
-
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Exception\ServerException;
 
 class Auth implements AuthInterface
 {
-    protected $client;
+    public $timeout;
+    public $client;
 
-    public function __construct()
+    /**
+     * Auth constructor.
+     * @param int $timeout connection timeout
+     */
+    public function __construct($timeout=5)
     {
         $this->client = new Client();
+        $this->timeout = $timeout;
     }
 
-    public function getTokenId($url, $username, $apiKey)
+    /**
+     * @param string $url
+     * @param string $username
+     * @param string $apiKey
+     * @return array
+     */
+    public function get($url, $username, $apiKey)
     {
         try {
             $request = $this->client->request('POST', $url, [
@@ -30,18 +40,29 @@ class Auth implements AuthInterface
                         ]
                     ]
                 ],
-                'timeout' => 5
+                'timeout' => $this->timeout
             ]);
 
             $response = [
                 'message' => 'success',
                 'code' => $request->getStatusCode(),
-                'data' => json_decode($request->getBody(), true)['token']
+                'data' => json_decode($request->getBody(), true)
             ];
-        } catch (RequestException $e) {
+        } catch (ClientException $e) {
             $response = [
-                'message' => $e->getMessage(),
-                'code' => $e->getCode()
+                'message' => $e->getResponse()->getReasonPhrase(),
+                'code' => $e->getResponse()->getStatusCode()
+            ];
+        } catch (ConnectException $e) {
+            $handleContext = $e->getHandlerContext();
+            $response = [
+                'message' => $handleContext['error'],
+                'code' => $handleContext['http_code']
+            ];
+        } catch (ServerException $e) {
+            $response = [
+                'message' => $e->getResponse()->getReasonPhrase(),
+                'code' => $e->getResponse()->getStatusCode()
             ];
         }
 

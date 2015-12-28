@@ -8,7 +8,7 @@ interface AuthInterface
      * @param string $url
      * @param string $username
      * @param string $apiKey
-     * @return mixed
+     * @return array
      */
-    public function getTokenId($url, $username, $apiKey);
+    public function get($url, $username, $apiKey);
 }
