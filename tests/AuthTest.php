@@ -52,7 +52,7 @@ class AuthTest extends PHPUnit_Framework_TestCase
 
         $res = $this->getAuthResponse($auth);
         $this->assertEquals(200, $res['code']);
-        $this->assertEquals("942053802fd74990bb9721eff929f477", $res['data']['token_id']);
+        $this->assertEquals("942053802fd74990bb9721eff929f477", $res['body']['token_id']);
 
     }
 
