@@ -16,7 +16,7 @@ class SalesOrder implements SalesOrderInterface
      * SalesOrder constructor.
      * @param int $timeout
      */
-    public function __construct($timeout=5)
+    public function __construct($timeout=10)
     {
         $this->client = new Client();
         $this->timeout = $timeout;
@@ -42,7 +42,7 @@ class SalesOrder implements SalesOrderInterface
             $response = [
                 'message' => 'success',
                 'code' => $request->getStatusCode(),
-                'data' => json_decode($request->getBody(), true)
+                'body' => json_decode($request->getBody(), true)
             ];
         } catch (ClientException $e) {
             $response = [

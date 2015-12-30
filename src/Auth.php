@@ -16,7 +16,7 @@ class Auth implements AuthInterface
      * Auth constructor.
      * @param int $timeout connection timeout
      */
-    public function __construct($timeout=5)
+    public function __construct($timeout=10)
     {
         $this->client = new Client();
         $this->timeout = $timeout;
@@ -46,7 +46,7 @@ class Auth implements AuthInterface
             $response = [
                 'message' => 'success',
                 'code' => $request->getStatusCode(),
-                'data' => json_decode($request->getBody(), true)
+                'body' => json_decode($request->getBody(), true)
             ];
         } catch (ClientException $e) {
             $response = [
