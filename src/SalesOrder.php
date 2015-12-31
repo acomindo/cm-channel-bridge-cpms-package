@@ -65,4 +65,46 @@ class SalesOrder implements SalesOrderInterface
 
         return $response;
     }
+
+    /**
+     * @param string $url
+     * @param string $tokenId
+     * @param string $orderId
+     * @return array
+     */
+    public function retrieve($url, $tokenId, $orderId){
+        try {
+            $request = $this->client->request('GET', $url.$orderId, [
+                'timeout' => $this->timeout,
+                'headers' => [
+                    'X-Subject-Token' => $tokenId
+                ]
+            ]);
+
+            $response = [
+                'message' => 'success',
+                'code' => $request->getStatusCode(),
+                'data' => json_decode($request->getBody(), true)
+            ];
+        } catch (ClientException $e) {
+            $response = [
+                'message' => $e->getResponse()->getReasonPhrase(),
+                'body' => json_decode($e->getResponse()->getBody(), true),
+                'code' => $e->getResponse()->getStatusCode()
+            ];
+        } catch (ServerException $e) {
+            $response = [
+                'message' => $e->getResponse()->getReasonPhrase(),
+                'code' => $e->getResponse()->getStatusCode()
+            ];
+        } catch (ConnectException $e) {
+            $handleContext = $e->getHandlerContext();
+            $response = [
+                'message' => $handleContext['error'],
+                'code' => $handleContext['http_code']
+            ];
+        }
+
+        return $response;
+    }
 }
