@@ -1,8 +1,8 @@
 <?php
 
-namespace aCommerce\CMBridgeSquid;
+namespace Acommerce\Cmp;
 
-class SalesOrder extends CMPS implements SalesOrderInterface
+class SalesOrder extends Cmp
 {
     public $timeout;
     public $client;

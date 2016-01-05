@@ -8,7 +8,7 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Exception\ConnectException;
 
 
-use aCommerce\CMBridgeSquid\Auth;
+use Acommerce\Cmp\Auth;
 
 class AuthTest extends PHPUnit_Framework_TestCase
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace aCommerce\CMBridgeSquid;
+namespace Acommerce\Cmp;
 
 class SalesOrderStatus extends CMPS
 {
