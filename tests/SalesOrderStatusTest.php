@@ -13,184 +13,72 @@ class SalesOrderStatusTest extends PHPUnit_Framework_TestCase
 {
     private $baseUrl;
     private $tokenId;
+    private $channelId;
+    private $partnerId;
+
 
     public function setUp()
     {
-        $this->tokenId = 'c641b964c62f4adaacf5b7c83fe4164b';
+        $this->tokenId = 'c34988bc25d14c90b5420166510e4ddb';
         $this->baseUrl =  'https://fulfillment.api.acommercedev.com/';
+        $this->channelId = 'frisianflag';
+        $this->partnerId = '143';
     }
 
-    public function testGetSalesOrderStatusPartnerId()
+    public function testGetByChannelId()
     {
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl);
+        $url = $this->baseUrl . "channel/" . $this->channelId ."/sales-order-status";
+        $salesOrderStatus = new SalesOrderStatus();
 
         $this->mockSalesOrderStatus($salesOrderStatus, [
-            new Response(200, [], '[{"orderId": "FRIS00201"}]'),
-            new Response(200, [], '{}')
+            new Response(200, [], '[{"message": "success", "code": 200, "body": []}]'),
+            new Response(200, [], '[{"message": "success", "code": 200, "body": []}]'),
+            new Response(200, [], '[{"message": "success", "code": 200, "body": []}]')
         ]);
-
-        $res = $salesOrderStatus->getPartner($this->tokenId, 143);
+        $res = $salesOrderStatus->get($this->tokenId, $url);
         $this->assertNotEmpty($res['body']);
+        $this->assertEquals("200", $res['code']);
 
-        $res = $salesOrderStatus->getPartner($this->tokenId, 1423);
-        $this->assertEmpty($res['body']);
-    }
-
-    public function testGetSalesOrderStatusChannelId() {
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl);
-
-        $this->mockSalesOrderStatus($salesOrderStatus, [
-            new Response(200, [], '[{"orderId": "FRIS00201"}]'),
-            new Response(200, [], '{}')
-        ]);
-
-        $res = $salesOrderStatus->getChannel($this->tokenId, 'frisianflag');
+        $url = $this->baseUrl . "channel/" . $this->channelId ."/sales-order-status?since=2015-12-30T06:00:00Z&orderStatus=NEW";
+        $res = $salesOrderStatus->get($this->tokenId, $url);
         $this->assertNotEmpty($res['body']);
+        $this->assertEquals("200", $res['code']);
 
-        $res = $salesOrderStatus->getChannel($this->tokenId, 'frisianflag123');
-        $this->assertEmpty($res['body']);
-    }
-
-    public function testGetSalesOrderStatusPartnerIdWithOrderId()
-    {
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl, null, null, ['FRIS00011']);
-
-        $this->mockSalesOrderStatus($salesOrderStatus, [
-            new Response(200, [], '[{"orderId": "FRIS00201"}]')
-        ]);
-
-        $res = $salesOrderStatus->getPartner($this->tokenId, 143);
+        $url = $this->baseUrl . "channel/" . $this->channelId ."/sales-order-status?id=FRISIAN2015123100001";
+        $res = $salesOrderStatus->get($this->tokenId, $url);
         $this->assertNotEmpty($res['body']);
+        $this->assertEquals("200", $res['code']);
     }
 
-    public function testGetSalesOrderStatusChannelIdWithOrderId()
-    {
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl, null, null, ['FRIS00011']);
+    public function testGetByPartnerId(){
+        $url = $this->baseUrl . "partner/" . $this->channelId ."/sales-order-status";
+        $salesOrderStatus = new SalesOrderStatus();
 
         $this->mockSalesOrderStatus($salesOrderStatus, [
-            new Response(200, [], '[{"orderId": "FRIS00201"}]'),
+            new Response(200, [], '[{"message": "success", "code": 200, "body": []}]'),
+            new Response(200, [], '[{"message": "success", "code": 200, "body": []}]'),
+            new Response(200, [], '[{"message": "success", "code": 200, "body": []}]')
         ]);
-
-        $res = $salesOrderStatus->getChannel($this->tokenId, 'frisianflag');
+        $res = $salesOrderStatus->get($this->tokenId, $url);
         $this->assertNotEmpty($res['body']);
-    }
+        $this->assertEquals("200", $res['code']);
 
-    public function testGetSalesOrderStatusPartnerIdWithTime()
-    {
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl, '2015-12-20T04:36:17Z');
-
-        $this->mockSalesOrderStatus($salesOrderStatus, [
-            new Response(200, [], '[{"orderId": "FRIS00201"}]'),
-            new Response(200, [], '{}')
-        ]);
-
-        $res = $salesOrderStatus->getPartner($this->tokenId, 143);
+        $url = $this->baseUrl . "partner/" . $this->channelId ."/sales-order-status?since=2015-12-30T06:00:00Z&orderStatus=NEW";
+        $res = $salesOrderStatus->get($this->tokenId, $url);
         $this->assertNotEmpty($res['body']);
+        $this->assertEquals("200", $res['code']);
 
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl, '3016-12-20T04:36:17Z');
-        $res = $salesOrderStatus->getPartner($this->tokenId, 143);
-        $this->assertEmpty($res['body']);
-    }
-
-    public function testGetSalesOrderStatusChannelIdWithTime()
-    {
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl, '2015-12-20T04:36:17Z');
-
-        $this->mockSalesOrderStatus($salesOrderStatus, [
-            new Response(200, [], '[{"orderId": "FRIS00201"}]'),
-            new Response(200, [], '{}')
-        ]);
-
-        $res = $salesOrderStatus->getChannel($this->tokenId, 'frisianflag');
+        $url = $this->baseUrl . "partner/" . $this->channelId ."/sales-order-status?id=FRISIAN2015123100001";
+        $res = $salesOrderStatus->get($this->tokenId, $url);
         $this->assertNotEmpty($res['body']);
-
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl, '3016-12-20T04:36:17Z');
-        $res = $salesOrderStatus->getChannel($this->tokenId, 'frisianflag');
-        $this->assertEmpty($res['body']);
+        $this->assertEquals("200", $res['code']);
     }
 
-    public function testGetSalesOrderStatusPartnerIdWithOrderStatus()
-    {
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl, null, 'ERROR');
-
-        $this->mockSalesOrderStatus($salesOrderStatus, [
-            new Response(200, [], '[{"orderId": "FRIS00201"}]'),
-            new Response(200, [], '{}')
-        ]);
-
-        $res = $salesOrderStatus->getPartner($this->tokenId, 143);
-        $this->assertNotEmpty($res['body']);
-
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl, '3016-12-20T04:36:17Z');
-        $res = $salesOrderStatus->getPartner($this->tokenId, 143);
-        $this->assertEmpty($res['body']);
-    }
-
-    public function testGetSalesOrderStatusChannelIdWithOrderStatus()
-    {
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl, null, 'ERROR');
-
-        $this->mockSalesOrderStatus($salesOrderStatus, [
-            new Response(200, [], '[{"orderId": "FRIS00201"}]'),
-            new Response(200, [], '{}')
-        ]);
-
-        $res = $salesOrderStatus->getChannel($this->tokenId, 'frisianflag');
-        $this->assertNotEmpty($res['body']);
-
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl, '3016-12-20T04:36:17Z');
-        $res = $salesOrderStatus->getChannel($this->tokenId, 'frisianflag');
-        $this->assertEmpty($res['body']);
-    }
-
-    public function testClientProblem()
-    {
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl);
-
-        $this->mockSalesOrderStatus($salesOrderStatus, [
-            new Response(404)
-        ]);
-
-        $res = $salesOrderStatus->getChannel($this->tokenId, 'frisianflag');
-        $this->assertEquals(404, $res['code']);
-    }
-
-    public function testServerProblem()
-    {
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl);
-
-        $this->mockSalesOrderStatus($salesOrderStatus, [
-            new Response(501)
-        ]);
-
-        $res = $salesOrderStatus->getChannel($this->tokenId, 'frisianflag');
-        $this->assertEquals(501, $res['code']);
-    }
-
-    public function testSalesOrderStatusConnectionError()
-    {
-        $salesOrderStatus = new SalesOrderStatus($this->baseUrl, '2015-12-20T04:36:17Z');
-
-        $handlerContext = [
-            'errno' => 28,
-            'error' => 'Connection timed out after 10004 milliseconds',
-            'http_code' => 0
-        ];
-
-        $this->mockSalesOrderStatus($salesOrderStatus, [
-            new ConnectException('Network Error', new Request('GET', $this->baseUrl), null, $handlerContext)
-        ]);
-
-        $res = $salesOrderStatus->getChannel($this->tokenId, 'frisianflag');
-        $this->assertEquals(0, $res['code']);
-    }
-
-    private function mockSalesOrderStatus(SalesOrderStatus $salesOrderStatus, $queue)
+    private function mockSalesOrderStatus(SalesOrderStatus $salesOrderStatus, array $queue)
     {
         $mock = new MockHandler($queue);
         $handler = HandlerStack::create($mock);
         $salesOrderStatus->client = new Client(['handler'=>$handler]);
     }
-
 
 }
