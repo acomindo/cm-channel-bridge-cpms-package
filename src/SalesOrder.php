@@ -2,7 +2,7 @@
 
 namespace Acommerce\Cmp;
 
-class SalesOrder extends Cmp implements SalesOrderInterface
+class SalesOrder extends Cmp
 {
     public $timeout;
     public $client;

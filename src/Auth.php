@@ -2,7 +2,7 @@
 
 namespace Acommerce\Cmp;
 
-class Auth extends Cmp implements AuthInterface
+class Auth extends Cmp
 {
     public function __construct($timeout=10)
     {
