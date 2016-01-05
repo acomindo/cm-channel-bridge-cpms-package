@@ -1,6 +1,6 @@
 <?php
 
-namespace Acp\Cmp;
+namespace Acommerce\Cmp;
 
 interface AuthInterface
 {
