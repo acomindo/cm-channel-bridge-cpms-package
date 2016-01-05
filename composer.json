@@ -1,5 +1,5 @@
 {
-    "name": "acp/cmp",
+    "name": "acommerce/cmp",
     "description": "aCommerce Platform Channel Management Micro Package for serving channel management public service api",
     "license": "aCommerce",
     "authors": [
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Acp\\Cmp\\": "src"
+            "Acommerce\\Cmp\\": "src"
         }
     }
 }

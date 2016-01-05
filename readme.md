@@ -1,11 +1,11 @@
-CMBridgeSquid
+CMP
 =============
 
-**Channel Micro Bridge Squid** for integration Channel Management to aCommerce Squid.
+**Channel Management Micro Package** for serving Channel Management Public Api.
 
 Version
 ---------
-0.2.2
+0.5.0
 
 Status
 -------
@@ -23,11 +23,11 @@ After done add this syntax below to your composer.json file
 	"repositories": [
 		{
 			"type": "vcs",
-			"url": "git@bitbucket.org:pseudecoder/cmbridgesquid.git"
+			"url": "git@bitbucket.org:acommerceplatform/cmp.git"
 		}
 	],
 	"require": {
-        "acommerce/cmbridgequid": "dev-master"
+        "acommerce/cmp": "dev-master"
     }
 }
 ```
