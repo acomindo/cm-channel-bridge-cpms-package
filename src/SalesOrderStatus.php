@@ -2,7 +2,7 @@
 
 namespace Acommerce\Cmp;
 
-class SalesOrderStatus extends CMPS
+class SalesOrderStatus extends Cmp
 {
     public $client;
     protected $timeout;
