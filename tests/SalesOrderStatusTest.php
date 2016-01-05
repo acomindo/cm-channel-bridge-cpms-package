@@ -3,9 +3,7 @@
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
-use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Exception\ConnectException;
 
 use Acommerce\Cmp\SalesOrderStatus;
 
