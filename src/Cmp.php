@@ -1,13 +1,13 @@
 <?php
 
-namespace aCommerce\CMBridgeSquid;
+namespace Acp\Cmp;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\ServerException;
 
-class CMPS
+class Cmp
 {
     public $client;
 

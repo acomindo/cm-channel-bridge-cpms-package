@@ -1,8 +1,8 @@
 <?php
 
-namespace aCommerce\CMBridgeSquid;
+namespace Acp\Cmp;
 
-class Auth extends CMPS implements AuthInterface
+class Auth extends Cmp implements AuthInterface
 {
     public function __construct($timeout=10)
     {

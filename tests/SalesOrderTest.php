@@ -7,7 +7,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Exception\ConnectException;
 
-use aCommerce\CMBridgeSquid\SalesOrder;
+use Acp\Cmp\SalesOrder;
 
 class SalesOrderTest extends PHPUnit_Framework_TestCase
 {

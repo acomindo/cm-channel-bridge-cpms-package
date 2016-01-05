@@ -1,13 +1,8 @@
 <?php
 
-namespace aCommerce\CMBridgeSquid;
+namespace Acp\Cmp;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Exception\ServerException;
-
-class SalesOrder extends CMPS implements SalesOrderInterface
+class SalesOrder extends Cmp implements SalesOrderInterface
 {
     public $timeout;
     public $client;
