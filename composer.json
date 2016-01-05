@@ -1,6 +1,6 @@
 {
-    "name": "acommerce/cmbridgesquid",
-    "description": "Channel Micro Bridge Squid for integration to acommerce Squid",
+    "name": "acp/cmp",
+    "description": "aCommerce Platform Channel Management Micro Package for serving channel management public service api",
     "license": "aCommerce",
     "authors": [
         {
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "aCommerce\\CMBridgeSquid\\": "src"
+            "Acp\\Cmp\\": "src"
         }
     }
 }

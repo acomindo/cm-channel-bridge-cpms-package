@@ -1,6 +1,6 @@
 <?php
 
-namespace aCommerce\CMBridgeSquid;
+namespace Acp\Cmp;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ConnectException;
