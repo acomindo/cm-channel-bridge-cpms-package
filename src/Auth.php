@@ -1,8 +1,8 @@
 <?php
 
-namespace Acommerce\Cmp;
+namespace ChannelBridge\Cmps;
 
-class Auth extends Cmp
+class Auth extends Base
 {
     public function __construct($timeout=10)
     {

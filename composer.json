@@ -1,6 +1,6 @@
 {
-    "name": "acommerce/cmp",
-    "description": "aCommerce Platform Channel Management Micro Package for serving channel management public service api",
+    "name": "channelbridge/cmps",
+    "description": "Channel Bridge CMPS Package used by channel bridge micro service",
     "license": "aCommerce",
     "authors": [
         {
@@ -16,7 +16,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Acommerce\\Cmp\\": "src"
+            "ChannelBridge\\Cmps\\": "src"
         }
     }
 }

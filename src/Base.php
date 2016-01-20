@@ -1,13 +1,13 @@
 <?php
 
-namespace Acommerce\Cmp;
+namespace ChannelBridge\Cmps;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\ConnectException;
 use GuzzleHttp\Exception\ServerException;
 
-class Cmp
+class Base
 {
     public $client;
 
