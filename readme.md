@@ -1,7 +1,7 @@
-CMP
+CMPS
 =============
 
-**Channel Management Micro Package** for serving Channel Management Public Api.
+Channel Bridge CMPS Package used by channel bridge micro service.
 
 Version
 ---------

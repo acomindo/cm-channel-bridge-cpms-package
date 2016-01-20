@@ -1,8 +1,8 @@
 <?php
 
-namespace Acommerce\Cmp;
+namespace ChannelBridge\Cmps;
 
-class SalesOrder extends Cmp
+class SalesOrder extends Base
 {
     public $timeout;
     public $client;

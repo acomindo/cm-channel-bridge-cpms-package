@@ -5,7 +5,7 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\Psr7\Response;
 use GuzzleHttp\HandlerStack;
 
-use Acommerce\Cmp\SalesOrderStatus;
+use ChannelBridge\Cmps\SalesOrderStatus;
 
 class SalesOrderStatusTest extends PHPUnit_Framework_TestCase
 {
