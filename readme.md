@@ -1,3 +1,5 @@
+[![wercker status](https://app.wercker.com/status/6b9a0d0aa6ed4a97f246743e8f908c97/m "wercker status")](https://app.wercker.com/project/bykey/6b9a0d0aa6ed4a97f246743e8f908c97)
+
 CMPS
 =============
 

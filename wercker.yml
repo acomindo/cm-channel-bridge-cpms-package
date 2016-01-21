@@ -1,5 +1,4 @@
-
-box: CB-CMPS/php
+box: wercker/php
 build:
   steps:
     - script:
