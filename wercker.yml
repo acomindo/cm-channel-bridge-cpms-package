@@ -1,0 +1,14 @@
+
+box: CB-CMPS/php
+build:
+  steps:
+    - script:
+        name: install dependencies
+        code: |-
+            composer install --no-interaction
+    - script:
+        name: Serve application
+        code: php -S localhost:8000 >> /dev/null &
+    - script:
+        name: PHPUnit Unit tests
+        code: phpunit --configuration phpunit.xml --testsuite unit
