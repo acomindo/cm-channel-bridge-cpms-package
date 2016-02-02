@@ -1,4 +1,4 @@
-[ ![Codeship Status for acommerceplatform/cm-channel-bridge-cpms-package](https://codeship.com/projects/21acd9f0-abd2-0133-6c89-2a6aaeef6a7e/status?branch=master)](https://codeship.com/projects/131452)
+[![wercker status](https://app.wercker.com/status/cd6fe8c863a9b457343911a5d4bdba26/s "wercker status")](https://app.wercker.com/project/bykey/cd6fe8c863a9b457343911a5d4bdba26)
 
 CPMS
 =============
