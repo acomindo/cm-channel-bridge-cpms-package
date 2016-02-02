@@ -1,4 +1,4 @@
-[![wercker status](https://app.wercker.com/status/cd6fe8c863a9b457343911a5d4bdba26/m "wercker status")](https://app.wercker.com/project/bykey/cd6fe8c863a9b457343911a5d4bdba26)
+[![wercker status](https://app.wercker.com/status/cd6fe8c863a9b457343911a5d4bdba26/s "wercker status")](https://app.wercker.com/project/bykey/cd6fe8c863a9b457343911a5d4bdba26)
 
 CPMS
 =============
