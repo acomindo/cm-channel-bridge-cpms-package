@@ -8,7 +8,7 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Exception\ConnectException;
 
 
-use ChannelBridge\Cmps\Auth;
+use ChannelBridge\Cpms\Auth;
 
 class AuthTest extends PHPUnit_Framework_TestCase
 {

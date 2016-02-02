@@ -1,6 +1,6 @@
 <?php
 
-namespace ChannelBridge\Cmps;
+namespace ChannelBridge\Cpms;
 
 class SalesOrderStatus extends Base
 {
