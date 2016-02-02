@@ -7,7 +7,7 @@ use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Exception\ConnectException;
 
-use ChannelBridge\Cmps\SalesOrder;
+use ChannelBridge\Cpms\SalesOrder;
 
 class SalesOrderTest extends PHPUnit_Framework_TestCase
 {

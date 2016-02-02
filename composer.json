@@ -1,5 +1,5 @@
 {
-    "name": "channelbridge/cmps",
+    "name": "channelbridge/cpms",
     "description": "Channel Bridge CMPS Package used by channel bridge micro service",
     "license": "aCommerce",
     "authors": [
@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ChannelBridge\\Cmps\\": "src"
+            "ChannelBridge\\Cpms\\": "src"
         }
     }
 }
