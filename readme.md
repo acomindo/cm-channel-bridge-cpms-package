@@ -1,9 +1,9 @@
-[![wercker status](https://app.wercker.com/status/6b9a0d0aa6ed4a97f246743e8f908c97/m "wercker status")](https://app.wercker.com/project/bykey/6b9a0d0aa6ed4a97f246743e8f908c97)
+[![wercker status](https://app.wercker.com/status/cd6fe8c863a9b457343911a5d4bdba26/m "wercker status")](https://app.wercker.com/project/bykey/cd6fe8c863a9b457343911a5d4bdba26)
 
-CMPS
+CPMS
 =============
 
-Channel Bridge CMPS Package used by channel bridge micro service.
+Channel Bridge CPMS Package used by channel bridge micro service.
 
 Version
 ---------
@@ -25,18 +25,14 @@ After done add this syntax below to your composer.json file
 	"repositories": [
 		{
 			"type": "vcs",
-			"url": "git@bitbucket.org:acommerceplatform/cmp.git"
+			"url": "git@bitbucket.org:acommerceplatform/cm-channel-bridge-cpms-package.git"
 		}
 	],
 	"require": {
-        "acommerce/cmp": "dev-master"
+        "channelbridge/cmps": "dev-master"
     }
 }
 ```
-
-
-if you have question don't hesitate to mail me at <rizha.musthafa@acommerce.asia>
-
 
 [stupgitssh]: <https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html>
 [multiacc]: <https://confluence.atlassian.com/bitbucket/configure-multiple-ssh-identities-for-gitbash-mac-osx-linux-271943168.html>
