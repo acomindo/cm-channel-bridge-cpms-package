@@ -28,7 +28,7 @@ class InventoryAllocationTest extends PHPUnit_Framework_TestCase
         $url = $this->baseUrl . "channel/" . $this->channelId . "/allocation/merchant/" . $this->partnerId . "?since=2010-01-01T00:00:01Z";
         $inventoryAllocation = new InventoryAllocation();
 
-        $this->mockInventoryAllotaion($inventoryAllocation,
+        $this->mockInventoryAllocation($inventoryAllocation,
             [
                 new Response(
                     200,
@@ -97,7 +97,7 @@ class InventoryAllocationTest extends PHPUnit_Framework_TestCase
         $this->assertNotEmpty($res['body']);
     }
 
-    private function mockInventoryAllotaion(InventoryAllocation $inventoryAllocation, array $queue)
+    private function mockInventoryAllocation(InventoryAllocation $inventoryAllocation, array $queue)
     {
         $mock = new MockHandler($queue);
         $handler = HandlerStack::create($mock);
