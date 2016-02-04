@@ -29,7 +29,8 @@ class Base
             $res = [
                 'message' => 'success',
                 'code' => $req->getStatusCode(),
-                'body' => json_decode($req->getBody(), true)
+                'body' => json_decode($req->getBody(), true),
+                'header' => $req->getHeaders()
             ];
         } catch (ClientException $e) {
             $res = [
