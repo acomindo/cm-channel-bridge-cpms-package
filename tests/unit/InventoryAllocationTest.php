@@ -33,7 +33,7 @@ class InventoryAllocationTest extends PHPUnit_Framework_TestCase
                 new Response(
                     200,
                     [
-                        'Link' => '<https://fulfillment.api.acommercedev.com/channel/frisianflag/allocation/merchant/143?since=2010-01-01T00%3A00%3A01Z>; rel="first", <https://fulfillment.api.acommercedev.com/channel/frisianflag/allocation/merchant/143?page=last&since=2010-01-01T00%3A00%3A01Z>; rel="last"'
+                        'Link' => '<https://fulfillment.api.acommercedev.com/channel/frisianflag/allocation/merchant/143?page=2&page_size=2>; rel="next", <https://fulfillment.api.acommercedev.com/channel/frisianflag/allocation/merchant/143?page=last&page_size=2>; rel="last"'
                     ],
                     '
                         [{
@@ -95,6 +95,8 @@ class InventoryAllocationTest extends PHPUnit_Framework_TestCase
 
         $this->assertEquals("200", $res['code']);
         $this->assertNotEmpty($res['body']);
+        $this->assertEquals("https://fulfillment.api.acommercedev.com/channel/frisianflag/allocation/merchant/143?page=2&page_size=2",
+            $res['next']);
     }
 
     private function mockInventoryAllocation(InventoryAllocation $inventoryAllocation, array $queue)

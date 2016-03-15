@@ -20,7 +20,12 @@ class InventoryAllocation extends Base
             ]
         ]);
 
-        return $res;
+        if ($res['code'] === 200 && isset($res['header']['Link'][0])) {
+            $refmt = "Link: ".$res['header']['Link'][0];
+            $result = \IndieWeb\http_rels($refmt);
+            $res['next'] = $result['next'][0];
+        }
 
+        return $res;
     }
 }
