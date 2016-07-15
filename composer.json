@@ -1,11 +1,15 @@
 {
-    "name": "channelbridge/cpms",
+    "name": "acommerce/cb-cpms",
     "description": "Channel Bridge CMPS Package used by channel bridge micro service",
     "license": "aCommerce",
     "authors": [
         {
             "name": "Rizha",
             "email": "rizha.musthafa@acommerce.asia"
+        },
+        {
+            "name": "Ivan",
+            "email": "ivan.petrus@acommerce.asia"
         }
     ],
     "require": {
