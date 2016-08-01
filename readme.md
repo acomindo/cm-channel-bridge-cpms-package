@@ -7,7 +7,7 @@ Channel Bridge CPMS Package used by channel bridge micro service.
 
 Version
 ---------
-0.5.0
+0.6.0
 
 Status
 -------
