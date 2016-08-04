@@ -14,6 +14,8 @@ class ShippingOrderTest extends PHPUnit_Framework_TestCase
     protected $url;
     protected $order;
     protected $tokenId;
+    protected $urlPatch;
+    protected $orderPatch;
 
     public function setUp()
     {
@@ -80,6 +82,32 @@ class ShippingOrderTest extends PHPUnit_Framework_TestCase
         }
         ';
         $this->order = json_decode($order, true);
+
+        //patch is only for custom project
+        $orderId = 'FRIS'. rand(1000, 9999);
+        $this->urlPatch = "https://shipping.api.acommercedev.com/partner/143/order/{$orderId}/ship-packages";
+        $orderPatch = '
+        [
+            {
+                "packageWeight":1.5,
+                "packageHeight":10,
+                "packageWidth":30,
+                "packageDepth":30,
+                "packageDeclaredValue":2500.00,
+                "packageItems":[
+                    {
+                        "itemDescription":"A widget that can be used for amazing things",
+                        "itemQuantity":1
+                    },
+                    {
+                        "itemDescription":"A much smaller widget that is not so useful",
+                        "itemQuantity":10
+                    }
+                ]
+            }
+        ]
+        ';
+        $this->orderPatch = json_decode($orderPatch, true);
     }
 
     public function testShippingOrderCreated()
@@ -116,6 +144,18 @@ class ShippingOrderTest extends PHPUnit_Framework_TestCase
 
         $res = $shippingOrder->create($this->url, $this->tokenId, $this->order);
         $this->assertEquals(501, $res['code']);
+    }
+
+    public function testShippingOrderPatched()
+    {
+        $shippingOrder = new ShippingOrder();
+
+        $this->mockShippingOrder($shippingOrder, [
+            new Response(201)
+        ]);
+
+        $res = $shippingOrder->update($this->urlPatch, $this->tokenId, $this->orderPatch);
+        $this->assertEquals(201, $res['code']);
     }
 
     private function mockShippingOrder(ShippingOrder $shippingOrder, array $queue)
