@@ -22,6 +22,16 @@ class ShippingOrder extends Base
         return $res;
     }
 
+    public function update($tokenId, $url, $json)
+    {
+        $res = $this->request('PATCH', $url, [
+            'json' => $json,
+            'headers' => ['X-Subject-Token' => $tokenId]
+        ]);
+
+        return $res;
+    }
+
     public function get($tokenId, $url)
     {
         $res = $this->request('GET', $url, [
