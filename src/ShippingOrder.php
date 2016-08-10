@@ -15,8 +15,8 @@ class ShippingOrder extends Base
     public function create($tokenId, $url, $json)
     {
         $res = $this->request('PUT', $url, [
-            'json' => $json,
-            'headers' => ['X-Subject-Token' => $tokenId]
+            'body' => $json,
+            'headers' => ['X-Subject-Token' => $tokenId, 'Content-Type' => 'application/json']
         ]);
 
         return $res;
@@ -25,8 +25,8 @@ class ShippingOrder extends Base
     public function update($tokenId, $url, $json)
     {
         $res = $this->request('PATCH', $url, [
-            'json' => $json,
-            'headers' => ['X-Subject-Token' => $tokenId]
+            'body' => $json,
+            'headers' => ['X-Subject-Token' => $tokenId, 'Content-Type' => 'application/json']
         ]);
 
         return $res;
